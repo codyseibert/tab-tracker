@@ -17,6 +17,7 @@
     "axios": "^0.16.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
+    "vue-youtube-embed": "^2.1.2",
     "vuetify": "^0.15.2",
     "vuex": "^2.4.0",
     "vuex-router-sync": "^4.3.1"
