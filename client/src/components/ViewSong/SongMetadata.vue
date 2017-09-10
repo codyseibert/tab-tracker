@@ -39,7 +39,7 @@
           dark
           class="cyan"
           @click="unsetAsBookmark">
-          Unset Bookmark
+          Unset As Bookmark
         </v-btn>
       </v-flex>
 
@@ -62,26 +62,28 @@ export default {
   ],
   data () {
     return {
-      bookmark: false
+      bookmark: null
     }
   },
   computed: {
     ...mapState([
-      'isUserLoggedIn'
+      'isUserLoggedIn',
+      'user'
     ])
   },
   watch: {
-    async song (value) {
+    async song () {
       if (!this.isUserLoggedIn) {
         return
       }
 
       try {
-        const query = {
-          songId: this.song.id,
-          userId: this.$store.state.user.id
+        const bookmarks = (await BookmarksService.index({
+          songId: this.song.id
+        })).data
+        if (bookmarks.length) {
+          this.bookmark = bookmarks[0]
         }
-        this.bookmark = (await BookmarksService.index(query)).data
       } catch (err) {
         console.log(err)
       }
@@ -90,11 +92,9 @@ export default {
   methods: {
     async setAsBookmark () {
       try {
-        const bookmark = {
-          songId: this.song.id,
-          userId: this.$store.state.user.id
-        }
-        this.bookmark = (await BookmarksService.post(bookmark)).data
+        this.bookmark = (await BookmarksService.post({
+          songId: this.song.id
+        })).data
       } catch (err) {
         console.log(err)
       }
