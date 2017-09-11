@@ -5,6 +5,8 @@ A Vue.js / Express.js web application for keeping track of guitar tabs
 
 You need to have Node Js installed: https://nodejs.org/en/
 
+You must at least have **NODE version 8.2.1**
+
 I suggest you install the following that I use in the video:
 
 VSCode: https://code.visualstudio.com/
