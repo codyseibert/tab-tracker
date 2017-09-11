@@ -1,7 +1,6 @@
 const {
   Bookmark,
-  Song,
-  User
+  Song
 } = require('../models')
 const _ = require('lodash')
 
@@ -26,8 +25,8 @@ module.exports = {
       })
         .map(bookmark => bookmark.toJSON())
         .map(bookmark => _.extend(
-          {}, 
-          bookmark.Song, 
+          {},
+          bookmark.Song,
           bookmark
         ))
       res.send(bookmarks)
@@ -64,7 +63,7 @@ module.exports = {
       })
     }
   },
-  async delete (req, res) {
+  async remove (req, res) {
     try {
       const userId = req.user.id
       const {bookmarkId} = req.params

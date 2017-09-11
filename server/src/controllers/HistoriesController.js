@@ -1,7 +1,6 @@
 const {
   History,
-  Song,
-  User
+  Song
 } = require('../models')
 const _ = require('lodash')
 
@@ -21,8 +20,8 @@ module.exports = {
       })
         .map(history => history.toJSON())
         .map(history => _.extend(
-          {}, 
-          history.Song, 
+          {},
+          history.Song,
           history
         ))
       res.send(_.uniqBy(histories, history => history.SongId))

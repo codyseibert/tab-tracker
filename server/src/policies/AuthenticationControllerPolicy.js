@@ -9,7 +9,7 @@ module.exports = {
       )
     }
 
-    const {error, value} = Joi.validate(req.body, schema)
+    const {error} = Joi.validate(req.body, schema)
 
     if (error) {
       switch (error.details[0].context.key) {
@@ -28,13 +28,13 @@ module.exports = {
             `
           })
           break
-        default: 
+        default:
           res.status(400).send({
             error: 'Invalid registration information'
           })
       }
     } else {
-      next()   
+      next()
     }
   }
 }

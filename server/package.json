@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/nodemon/bin/nodemon.js src/app.js --exec 'npm run lint && node'",
-    "lint": "true || ./node_modules/.bin/eslint **/*.js",
+    "lint": "./node_modules/.bin/eslint src/**/*.js",
     "seed": "node ./seed"
   },
   "keywords": [],
