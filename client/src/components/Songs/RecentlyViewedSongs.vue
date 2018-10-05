@@ -34,7 +34,7 @@ export default {
         }
       ],
       pagination: {
-        sortBy: 'createdAt',
+        sortBy: 'updatedAt',
         descending: true
       },
       histories: []

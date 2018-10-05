@@ -27,7 +27,7 @@ module.exports = {
           history.Song,
           history
         ))
-      res.send(_.uniqBy(histories, history => history.SongId))
+      res.send(histories)
     } catch (err) {
       res.status(500).send({
         error: 'an error has occured trying to fetch the history'
@@ -38,13 +38,37 @@ module.exports = {
     try {
       const userId = req.user.id
       const {songId} = req.body
-      const history = await History.create({
-        SongId: songId,
-        UserId: userId
+      const history = await History.findOne({
+        where: {
+          UserId: userId,
+          SongId: songId
+        }
       })
-      res.send(history)
+      if (history) {
+        try {
+          let viewCount = history.viewCount
+          viewCount++
+          await History.update({
+            viewCount: viewCount
+          },
+          {
+            where: {
+              UserId: userId,
+              SongId: songId
+            }
+          })
+          res.send(history)
+        } catch (err) {
+          console.log('update error', err)
+        }
+      } else {
+        const history = await History.create({
+          SongId: songId,
+          UserId: userId
+        })
+        res.send(history)
+      }
     } catch (err) {
-      console.log(err)
       res.status(500).send({
         error: 'an error has occured trying to create the history object'
       })
