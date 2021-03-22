@@ -17,6 +17,9 @@ module.exports = {
             model: Song
           }
         ],
+        group: [
+          'SongId'
+        ],
         order: [
           ['createdAt', 'DESC']
         ]
