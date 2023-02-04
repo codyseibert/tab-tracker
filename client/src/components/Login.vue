@@ -5,12 +5,14 @@
         <v-text-field
           label="Email"
           v-model="email"
+          data-cy="email"
         ></v-text-field>
         <br>
         <v-text-field
           label="Password"
           type="password"
           v-model="password"
+          data-cy="password"
         ></v-text-field>
         <br>
         <div class="danger-alert" v-html="error" />
