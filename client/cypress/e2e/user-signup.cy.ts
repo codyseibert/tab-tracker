@@ -1,12 +1,15 @@
-import { Register } from "./signup/registration"
+import { loginPage } from "./signIn/login"
+import { RegisterPage } from "./signup/registration"
 const email = Cypress.env('userEmail')
 const password = Cypress.env('userPassword')
 const invalidEmail = Cypress.env('invalidEmail')
 const invalidPassword = Cypress.env('invalidPassword')
-const registerNewUser = new Register
+const registerNewUser = new RegisterPage()
+const loginPageT = new loginPage()
+// verify login page
 describe('Registration page', () => {
   beforeEach(() => {
-    registerNewUser.registrationPage()
+    registerNewUser.navigateToSignUpPage()
   })
   it('Should have registration form', () => {
     registerNewUser.registrationForm()
@@ -29,16 +32,22 @@ describe('Registration page', () => {
     registerNewUser.registrationPageSongsAnchorTag()
   })
  it('Should have email input', () => {
-  registerNewUser.regEmial()
+  registerNewUser.regEmail()
  })
  it('Should have password input', () => {
   registerNewUser.regPassword()
  })
+ it('Should have email place placeholder', () => {
+  registerNewUser.emailPlaceHolder('Email')
+})
+it('Should have email place placeholder', () => {
+  registerNewUser.passwordPlaceHolder('Password')
+})
 it('Should have register button', () => {
   registerNewUser.regPageButton()
 })
 }) 
-
+// Verify signup validation and register
 describe('Sign up', () => {
   beforeEach(() => {
     registerNewUser.registrationPage()

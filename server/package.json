@@ -7,12 +7,8 @@
     "start": "nodemon src/app.js --exec  \"npm run lint && node\"",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js  --fix",
-    "seed": "node seed",
-    "ci": "cypress run 'cypress/src/e2e/*.cy.ts' --browser chrome",
-    "cy-run": "npx cypress run 'cypress/src/e2e/local-server.cy.ts' --browser chrome",
-    "test": "start-server-and-test start http://localhost:4200 cy-run",
-    "cy-open": "npx cypress open 'cypress/src/e2e/local-server.cy.ts' --browser chrome",
-    "cy-test": "start-server-and-test start http://localhost:4200 cy-open"
+    "seed": "node seed"
+ 
 
   },
   "keywords": [],

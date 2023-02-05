@@ -1,11 +1,19 @@
 import { Registration } from "../selectors/tabTracker-selectors"
-
-export class Register {
+const baseUrl = Cypress.env('baseUrl')
+export class RegisterPage {
     emailAlert = 'You must provide a valid email address'
     passwordAlert = 'The password provided failed to match the following rules:'
     '1. It must contain ONLY the following characters: lower case, upper case, numerics.'
     '2. It must be at least 8 characters in length and not greater than 32 characters in length.';
 
+    
+    navigateToSignUpPage() {
+        cy.visit(baseUrl)
+        cy.contains('Sign Up').click()
+        cy.url().should('contain', '/#/register')
+        cy.contains('Sign Up').should('have.attr', 'href').and('include', 'register')
+        return this
+    }
     registrationPage() {
         cy.visit('http://localhost:8080/#/register')
         cy.url().should('contain', '/#/register')
@@ -68,7 +76,7 @@ export class Register {
         return this
     }
 
-    regEmial() {
+    regEmail() {
         cy.get(Registration.inputFiled)
             .eq(0)
             .should('exist')
@@ -81,6 +89,24 @@ export class Register {
             .should('exist')
             .and('be.visible')
         return this
+    }
+    emailPlaceHolder(placeHolder) {
+        cy.get(Registration.placeHolderText)
+            .eq(0)
+            .should('exist')
+            .and('be.visible')
+            .then(($el) => {
+                expect($el.text()).to.equal(placeHolder)
+            })
+    }
+    passwordPlaceHolder(placeHolder) {
+        cy.get(Registration.placeHolderText)
+            .eq(1)
+            .should('exist')
+            .and('be.visible')
+            .then(($el) => {
+                expect($el.text()).to.equal(placeHolder)
+            })
     }
     regPageButton() {
         cy.get(Registration.regButton)

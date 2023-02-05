@@ -1,7 +1,15 @@
 import { Login } from "../selectors/tabTracker-selectors"
+const baseUrl = Cypress.env('baseUrl')
 export class loginPage {
 
-    alert= 'The login information was incorrect'
+    alert = 'The login information was incorrect'
+    navigateToLoginPage() {
+        cy.visit(baseUrl)
+        cy.contains('Login').click()
+        cy.url().should('contain', '/#/login')
+        cy.contains('Login').should('have.attr', 'href').and('include', 'login')
+        return this
+    }
     loginPage() {
         cy.visit('http://localhost:8080/#/login')
         cy.url().should('contain', '/#/login')
@@ -64,11 +72,29 @@ export class loginPage {
         return this
     }
 
-    loginEmial() {
+    loginEmail() {
         cy.get(Login.loginEmail)
             .should('exist')
             .and('be.visible')
         return this
+    }
+    emailPlaceHolder(placeHolder) {
+        cy.get(Login.placeHolderText)
+            .eq(0)
+            .should('exist')
+            .and('be.visible')
+            .then(($el) => {
+                expect($el.text()).to.equal(placeHolder)
+            })
+    }
+    passwordPlaceHolder(placeHolder) {
+        cy.get(Login.placeHolderText)
+            .eq(1)
+            .should('exist')
+            .and('be.visible')
+            .then(($el) => {
+                expect($el.text()).to.equal(placeHolder)
+            })
     }
     loginPassword() {
         cy.get(Login.loginPassword)
