@@ -2,7 +2,7 @@ import { Search } from "../selectors/tabTracker-selectors"
 
 const baseUrl = Cypress.env('baseUrl')
 export class searchPage {
-
+songsLength = []
     searchPageLanding() {
         cy.visit(baseUrl)
         cy.url().should('contain', '/#/songs')
@@ -32,7 +32,8 @@ export class searchPage {
             .should('exist')
             .and('be.visible')
             .then(($el) => {
-                expect($el.length).to.equal(7)
+                expect($el.length).to.equal(7 +1)
+                this.songsLength.push($el.length)
             })
     }
     songLayout() {

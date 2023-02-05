@@ -1,5 +1,4 @@
 name: Cypress e2e Tests
-
 on: [push]
 
 jobs:

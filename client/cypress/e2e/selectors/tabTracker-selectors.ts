@@ -33,8 +33,15 @@ export enum Search {
 }
 
 export enum Create {
-    
+
 }
 export enum GlobalSelectors {
-    placeHolderText = '.input-group'
+    placeHolderText = '.input-group',
+    button = '.btn--raised',
+    dangerAlert = '.danger-alert',
+    inputFields = '.input-group',
+    inputFiled = '.input-group__input',
+    inputValidation = '.input-group--error',
+    toolbar = '.toolbar__title',
+    toolBarItems = '.toolbar__items',
 }
