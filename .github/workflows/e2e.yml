@@ -1,6 +1,6 @@
-name: Cypress e2e Tests
-on: [push]
-
+name: Cypress E2E test
+on:
+  pull_request:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
