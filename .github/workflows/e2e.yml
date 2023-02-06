@@ -22,3 +22,4 @@ jobs:
         with:
           run: npm run e2e-test
         working-directory: /client
+        
