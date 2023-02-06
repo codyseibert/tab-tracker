@@ -7,9 +7,10 @@
     "start": "nodemon src/app.js --exec  \"npm run lint && node\"",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js  --fix",
-    "seed": "node seed"
+    "seed": "node seed",
+    "start-server": "npm install & npm start"
  
-
+   
   },
   "keywords": [],
   "author": "",
