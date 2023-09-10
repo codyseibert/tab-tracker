@@ -1,0 +1,1 @@
+MsgBox "Selenium TA is not yet implemented", vbInformation, "Information"
