@@ -1,0 +1,8 @@
+{
+  "ignore": ["! ./docs/_sidebar.md"],
+  "MD026": false,
+  "MD013": false,
+  "MD033": {
+    "allowed_elements": ["details", "summary", "br"]
+  }
+}

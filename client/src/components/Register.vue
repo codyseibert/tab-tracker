@@ -2,15 +2,17 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Register">
-        <form 
+        <form
           name="tab-tracker-form"
           autocomplete="off">
           <v-text-field
+            name="email"
             label="Email"
             v-model="email"
           ></v-text-field>
           <br>
           <v-text-field
+            name="password"
             label="Password"
             type="password"
             v-model="password"
@@ -23,6 +25,7 @@
         <v-btn
           dark
           class="cyan"
+          name="registerBtn"
           @click="register">
           Register
         </v-btn>

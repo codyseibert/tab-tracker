@@ -6,7 +6,7 @@
       </v-flex>
 
       <v-flex xs6 class="ml-2">
-        <you-tube :youtubeId="song.youtubeId" />
+        <you-tube v-if="song.youtubeId" :youtubeId="song.youtubeId" />
       </v-flex>
     </v-layout>
 
@@ -46,6 +46,7 @@ export default {
   },
   async mounted () {
     const songId = this.route.params.songId
+    await SongsService.show(songId).data
     this.song = (await SongsService.show(songId)).data
 
     if (this.isUserLoggedIn) {

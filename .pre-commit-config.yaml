@@ -1,0 +1,4 @@
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: master # or specific git tag
+  hooks:
+    - id: markdownlint

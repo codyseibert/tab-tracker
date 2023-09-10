@@ -1,20 +1,22 @@
-const {Song} = require('../models')
+const { Song } = require('../models')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 module.exports = {
-  async index (req, res) {
+  async index(req, res) {
     try {
       let songs = null
       const search = req.query.search
       if (search) {
+        console.log(search)
         songs = await Song.findAll({
           where: {
-            $or: [
-              'title', 'artist', 'genre', 'album'
-            ].map(key => ({
-              [key]: {
-                $like: `%${search}%`
-              }
-            }))
+            [Op.or]: [
+              { title: { [Op.like]: [`%${search}%`] } },
+              { artist: { [Op.like]: [`%${search}%`] } },
+              { genre: { [Op.like]: [`%${search}%`] } },
+              { album: { [Op.like]: [`%${search}%`] } }
+            ]
           }
         })
       } else {
@@ -29,9 +31,9 @@ module.exports = {
       })
     }
   },
-  async show (req, res) {
+  async show(req, res) {
     try {
-      const song = await Song.findById(req.params.songId)
+      const song = await Song.findByPk(req.params.songId)
       res.send(song)
     } catch (err) {
       res.status(500).send({
@@ -39,7 +41,7 @@ module.exports = {
       })
     }
   },
-  async post (req, res) {
+  async post(req, res) {
     try {
       const song = await Song.create(req.body)
       res.send(song)
@@ -49,7 +51,7 @@ module.exports = {
       })
     }
   },
-  async put (req, res) {
+  async put(req, res) {
     try {
       await Song.update(req.body, {
         where: {

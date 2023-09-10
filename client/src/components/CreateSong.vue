@@ -7,6 +7,7 @@
           required
           :rules="[required]"
           v-model="song.title"
+          id="sngTitle"
         ></v-text-field>
 
         <v-text-field
@@ -14,6 +15,7 @@
           required
           :rules="[required]"
           v-model="song.artist"
+          id="sngArtist"
         ></v-text-field>
 
         <v-text-field
@@ -21,6 +23,7 @@
           required
           :rules="[required]"
           v-model="song.genre"
+          id="sngGenre"
         ></v-text-field>
 
         <v-text-field
@@ -28,6 +31,7 @@
           required
           :rules="[required]"
           v-model="song.album"
+          id="sngAlbum"
         ></v-text-field>
 
         <v-text-field
@@ -35,6 +39,7 @@
           required
           :rules="[required]"
           v-model="song.albumImageUrl"
+          id="sngAlbumImg"
         ></v-text-field>
 
         <v-text-field
@@ -42,6 +47,7 @@
           required
           :rules="[required]"
           v-model="song.youtubeId"
+          id="sngYoutube"
         ></v-text-field>
       </panel>
     </v-flex>
@@ -54,6 +60,7 @@
           required
           :rules="[required]"
           v-model="song.tab"
+          id="sngTab"
         ></v-text-field>
 
         <v-text-field
@@ -62,6 +69,7 @@
           required
           :rules="[required]"
           v-model="song.lyrics"
+          id="sngLyrics"
         ></v-text-field>
       </panel>
 
@@ -72,6 +80,7 @@
       <v-btn
         dark
         class="cyan"
+        id="sngBtn"
         @click="create">
         Create Song
       </v-btn>

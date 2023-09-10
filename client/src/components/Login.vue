@@ -3,11 +3,13 @@
     <v-flex xs6 offset-xs3>
       <panel title="Login">
         <v-text-field
+          name="email"
           label="Email"
           v-model="email"
         ></v-text-field>
         <br>
         <v-text-field
+          name="password"
           label="Password"
           type="password"
           v-model="password"
@@ -17,6 +19,7 @@
         <br>
         <v-btn
           dark
+          name="loginBtn"
           class="cyan"
           @click="login">
           Login

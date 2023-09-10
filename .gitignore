@@ -1,3 +1,10 @@
+/node_modules/
+/cypress
+/cypress.json
+/package-lock.json
+.idea/*
+output
 client/node_modules/
 server/node_modules/
-
+*.iml
+.DS_Store

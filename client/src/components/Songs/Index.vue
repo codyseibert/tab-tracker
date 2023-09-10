@@ -20,7 +20,6 @@ import SongsPanel from './SongsPanel'
 import SongsBookmarks from './SongsBookmarks'
 import RecentlyViewedSongs from './RecentlyViewedSongs'
 import SongsSearchPanel from './SongsSearchPanel'
-import SongsService from '@/services/SongsService'
 import {mapState} from 'vuex'
 
 export default {
@@ -39,9 +38,6 @@ export default {
     return {
       songs: null
     }
-  },
-  async mounted () {
-    this.songs = (await SongsService.index()).data
   }
 }
 </script>

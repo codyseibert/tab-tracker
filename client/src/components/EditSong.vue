@@ -111,6 +111,7 @@ export default {
       }
 
       const songId = this.$store.state.route.params.songId
+      console.log(songId)
       try {
         await SongsService.put(this.song)
         this.$router.push({

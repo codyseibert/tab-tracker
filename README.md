@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is dedicated to the Swiss Testing Night event, focusing on testing a System Under Test (SUT) using different Test Automation (TA) tools, including Selenium, Cypress, and Playwright. The SUT used for this demonstration is derived from the [Tab Tracker](https://github.com/codyseibert/tab-tracker) repository by Cody Seibert.
+This repository is dedicated to the Swiss Testing Night event, focusing on testing a System Under Test (SUT) using different Test Automation (TA) tools, including Selenium, Cypress, and Playwright. The SUT used for this demonstration is derived from the [Tab Tracker](https://github.com/codyseibert/tab-tracker) repository by Cody Seibert and updated by [Xebia](https://github.com/xebia/cypress-training/).
 
 ## Repository Structure
 
@@ -18,6 +18,8 @@ This batch file installs the required dependencies for the project, including th
 ```bash
 install_dependencies.bat
 ```
+
+If there are any problems, please run the commands in the file manually.
 
 ### Starting the Application
 
